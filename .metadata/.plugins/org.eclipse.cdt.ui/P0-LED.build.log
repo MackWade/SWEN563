@@ -1,0 +1,93 @@
+18:21:03 **** Incremental Build of configuration Debug for project P0-LED ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/button.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/button.d" -MT"Core/Src/button.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/button.o"
+arm-none-eabi-gcc "../Core/Src/clock.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/clock.d" -MT"Core/Src/clock.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/clock.o"
+arm-none-eabi-gcc "../Core/Src/led.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/led.d" -MT"Core/Src/led.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/led.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32l4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32l4xx.d" -MT"Core/Src/system_stm32l4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32l4xx.o"
+../Core/Src/clock.c: In function 'clock_init':
+../Core/Src/button.c: In function 'button_init':
+../Core/Src/clock.c:12:5: error: 'RCC' undeclared (first use in this function)
+   12 |     RCC->CR |= ((uint32_t)RCC_CR_HSION);
+      |     ^~~
+../Core/Src/clock.c:12:5: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/button.c:13:21: error: 'GPIOC' undeclared (first use in this function)
+   13 | #define BUTTON_PORT GPIOC
+      |                     ^~~~~
+../Core/Src/button.c:17:5: note: in expansion of macro 'BUTTON_PORT'
+   17 |     BUTTON_PORT->MODER &= ~(0x3<<(BUTTON_PIN*2)) ;        // clear the two MODE bits for this pin to make an input
+      |     ^~~~~~~~~~~
+../Core/Src/clock.c:12:18: error: 'uint32_t' undeclared (first use in this function)
+   12 |     RCC->CR |= ((uint32_t)RCC_CR_HSION);
+      |                  ^~~~~~~~
+../Core/Src/button.c:13:21: note: each undeclared identifier is reported only once for each function it appears in
+   13 | #define BUTTON_PORT GPIOC
+      |                     ^~~~~
+../Core/Src/button.c:17:5: note: in expansion of macro 'BUTTON_PORT'
+   17 |     BUTTON_PORT->MODER &= ~(0x3<<(BUTTON_PIN*2)) ;        // clear the two MODE bits for this pin to make an input
+      |     ^~~~~~~~~~~
+../Core/Src/clock.c:12:27: error: expected ')' before 'RCC_CR_HSION'
+   12 |     RCC->CR |= ((uint32_t)RCC_CR_HSION);
+      |                ~          ^~~~~~~~~~~~
+      |                           )
+../Core/Src/clock.c:15:34: error: expected ')' before 'RCC_CR_HSIRDY'
+   15 |     while ( (RCC->CR & (uint32_t) RCC_CR_HSIRDY) == 0 ) {;}
+      |             ~                    ^~~~~~~~~~~~~~
+      |                                  )
+../Core/Src/button.c: In function 'button_isPressed':
+../Core/Src/button.c:26:2: error: unknown type name 'uint32_t'
+   26 |  uint32_t bit = BUTTON_PORT->IDR & (1<<BUTTON_PIN);
+      |  ^~~~~~~~
+../Core/Src/clock.c:18:39: error: expected ')' before '~' token
+   18 |     RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
+      |                                       ^
+      |                                       )
+../Core/Src/clock.c:19:28: error: expected ';' before 'RCC_CFGR_SW_HSI'
+   19 |     RCC->CFGR |= (uint32_t)RCC_CFGR_SW_HSI;     // 01: HSI16 oscillator used as system clock
+      |                            ^~~~~~~~~~~~~~~
+      |                            ;
+../Core/Src/clock.c:22:35: error: expected ')' before 'RCC_CFGR_SWS'
+   22 |     while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) == 0 ) {;}
+      |            ~                      ^~~~~~~~~~~~
+      |                                   )
+../Core/Src/button.c:13:21: error: 'GPIOC' undeclared (first use in this function)
+   13 | #define BUTTON_PORT GPIOC
+      |                     ^~~~~
+../Core/Src/button.c:26:17: note: in expansion of macro 'BUTTON_PORT'
+   26 |  uint32_t bit = BUTTON_PORT->IDR & (1<<BUTTON_PIN);
+      |                 ^~~~~~~~~~~
+../Core/Src/led.c: In function 'led_init':
+../Core/Src/led.c:22:5: error: 'GPIOA' undeclared (first use in this function)
+   22 |     GPIOA->MODER &= ~(0x3<<(LED_PIN*2)) ;        // first, clear the two MODE bits for this pin
+      |     ^~~~~
+../Core/Src/led.c:22:5: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/clock.c:25:21: error: 'RCC_AHB2ENR_GPIOAEN' undeclared (first use in this function)
+   25 |     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;    // enable clock for the User LED, UART
+      |                     ^~~~~~~~~~~~~~~~~~~
+../Core/Src/clock.c:26:21: error: 'RCC_AHB2ENR_GPIOCEN' undeclared (first use in this function)
+   26 |     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOCEN;    // enable clock for the User Button
+      |                     ^~~~~~~~~~~~~~~~~~~
+../Core/Src/led.c: In function 'led_set':
+../Core/Src/led.c:36:3: error: 'GPIOA' undeclared (first use in this function)
+   36 |   GPIOA->ODR &= ~(1 << LED_PIN);
+      |   ^~~~~
+../Core/Src/led.c: In function 'led_isOn':
+../Core/Src/led.c:43:2: error: unknown type name 'uint32_t'
+   43 |  uint32_t bit = GPIOA->ODR & (1<<LED_PIN);
+      |  ^~~~~~~~
+../Core/Src/led.c:43:17: error: 'GPIOA' undeclared (first use in this function)
+   43 |  uint32_t bit = GPIOA->ODR & (1<<LED_PIN);
+      |                 ^~~~~
+../Core/Src/system_stm32l4xx.c:92:10: fatal error: stm32l4xx.h: No such file or directory
+   92 | #include "stm32l4xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:31: Core/Src/clock.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:31: Core/Src/button.o] Error 1
+make: *** [Core/Src/subdir.mk:31: Core/Src/led.o] Error 1
+make: *** [Core/Src/subdir.mk:31: Core/Src/system_stm32l4xx.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+18:21:03 Build Failed. 22 errors, 0 warnings. (took 294ms)
+

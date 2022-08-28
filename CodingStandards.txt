@@ -1,0 +1,28 @@
+Naming Conventions
+    • Variables
+        o Use only lower case
+        o Use underscores to separate words in a name: first_name
+        o Need to be descriptive: array_length
+        o Commonly used variables like i, j, and k for loop control and array indexing are
+        acceptable.
+        o Arrays should indicate that it is multiple items: customers
+    • Definitions
+        o All #define statements must be in UPPER CASE: #define ARRAY_SIZE (10)
+        o Except for using upper case follow variable naming conventions.
+        o Always use parentheses around numeric values in #define statements.
+        o Never use hard coded numbers except in #define statements.
+    • Functions
+        o Need to be descriptive: get_customer_account
+        o Using a verb and an object often adds clarity: create_report
+Comments
+    • Need to describe purpose: // search array for a customer number
+    • Do not just describe how the code works: a = b + c; // add b and c and put in a
+    • Many programmers now prefer using // for single line comments.
+    • /* */ syntax is still used but should be formatted to show clearly the range of comment text.
+    • Inside functions describe the purpose of each significant section of code.
+        o Loops should have a comment describing the loop’s purpose (unless obvious).
+        o Complex expressions should be documented.
+    • Functions must have a block of comments right above the function describing:
+        o Purpose
+        o Input parameter(s)
+        o Output
