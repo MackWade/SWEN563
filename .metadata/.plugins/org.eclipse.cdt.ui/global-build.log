@@ -1,14 +1,45 @@
-20:23:56 **** Incremental Build of configuration Debug for project P0-LED ****
+04:44:49 **** Incremental Build of configuration Debug for project P1-Timer ****
 make -j12 all 
-arm-none-eabi-size   P0-LED.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:25:9: warning: variable 'msg' set but not used [-Wunused-but-set-variable]
+   25 |   char *msg = "";
+      |         ^~~
+../Core/Src/main.c:14:7: warning: unused variable 'n' [-Wunused-variable]
+   14 |  int  n ;
+      |       ^
+../Core/Src/main.c:12:7: warning: variable 'some_int' set but not used [-Wunused-but-set-variable]
+   12 |  int  some_int;
+      |       ^~~~~~~~
+arm-none-eabi-gcc -o "P1-Timer.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Mac\Documents\Fall2022\SWEN563\P1-Timer\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="P1-Timer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: P1-Timer.elf
+ 
+arm-none-eabi-size   P1-Timer.elf 
+arm-none-eabi-objdump -h -S  P1-Timer.elf  > "P1-Timer.list"
    text	   data	    bss	    dec	    hex	filename
-   1144	      8	   1568	   2720	    aa0	P0-LED.elf
+   3516	      8	   1568	   5092	   13e4	P1-Timer.elf
 Finished building: default.size.stdout
  
-20:24:02 **** Incremental Build of configuration Debug for project P0-LED ****
+Finished building: P1-Timer.list
+ 
+04:44:56 **** Incremental Build of configuration Debug for project P1-Timer ****
 make -j12 all 
-arm-none-eabi-size   P0-LED.elf 
+arm-none-eabi-size   P1-Timer.elf 
    text	   data	    bss	    dec	    hex	filename
-   1144	      8	   1568	   2720	    aa0	P0-LED.elf
+   3516	      8	   1568	   5092	   13e4	P1-Timer.elf
+Finished building: default.size.stdout
+ 
+04:45:35 **** Incremental Build of configuration Debug for project P1-Timer ****
+make -j12 all 
+arm-none-eabi-size   P1-Timer.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3516	      8	   1568	   5092	   13e4	P1-Timer.elf
+Finished building: default.size.stdout
+ 
+04:46:55 **** Incremental Build of configuration Debug for project P1-Timer ****
+make -j12 all 
+arm-none-eabi-size   P1-Timer.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3516	      8	   1568	   5092	   13e4	P1-Timer.elf
 Finished building: default.size.stdout
  

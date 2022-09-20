@@ -1,0 +1,15 @@
+/*
+ * timer.c
+ *
+ *  Created on: Sep 19, 2022
+ *      Author: Mac
+ */
+#include "timer.h"
+#include "stm32l476xx.h"
+
+ void TIM12_Init(void){
+	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM2EN;	// enable the clock for the selected timer in the RCC->APB1ENR1 register
+	TIM2->PSC = 15999;						// Then load your prescaler value into the TIMx->PSC registe
+	TIM2->EGR |= TIM_EGR_UG ;				//  force the load of the new prescaler value by creating an update event using the TIMx->EGR register
+	TIM2->CR1 |= TIM_CR1_CEN ;				// now start the timer
+}
