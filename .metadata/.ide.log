@@ -824,3 +824,7 @@
 2022-09-19 19:35:28,549 [INFO] ApiDb:447 - User favorites MCUs=[]
 2022-09-19 19:35:28,550 [INFO] ApiDb:443 - Save user favorites file C:\Users\Mac/.stm32cubeide/favorites.boards.txt: 1 item(s)
 2022-09-19 19:35:28,550 [INFO] ApiDb:447 - User favorites Boards=[NUCLEO-L476RG]
+2022-09-25 17:31:07,878 [INFO] Activator:177 - 
+
+
+2022-09-25 17:31:07,879 [INFO] Activator:178 - !SESSION log4j initialized
